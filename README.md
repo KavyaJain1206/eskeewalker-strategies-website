@@ -31,14 +31,3 @@ The Vite dev server proxies `/api/*` → `http://localhost:8000`.
 | `/about` | About |
 | `/contact` | Contact (form → POST /api/contact) |
 
-## Contact form email (optional)
-
-Set env vars before running uvicorn:
-
-```
-SMTP_HOST=smtp.gmail.com
-SMTP_USER=youraddress@gmail.com
-SMTP_PASS=your_app_password
-```
-
-Without these, submissions are logged to console only.
