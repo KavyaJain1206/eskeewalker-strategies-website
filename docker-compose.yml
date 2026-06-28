@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: eskee_db
+    restart: always
+    environment:
+      POSTGRES_DB: eskeecms
+      POSTGRES_USER: eskeeuser
+      POSTGRES_PASSWORD: eskeepassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    container_name: eskee_backend
+    restart: always
+    environment:
+      - DATABASE_URL=postgresql://eskeeuser:eskeepassword@db:5432/eskeecms
+      - JWT_SECRET=eskeewalkersupersecretkeyforjwt
+      - JWT_ALGORITHM=HS256
+      - JWT_EXPIRE_MINUTES=1440
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    container_name: eskee_frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
