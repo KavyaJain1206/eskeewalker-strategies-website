@@ -75,3 +75,6 @@ backend/cms.db
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+#AI
+.claude

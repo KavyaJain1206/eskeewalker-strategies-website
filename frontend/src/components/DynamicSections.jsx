@@ -63,7 +63,7 @@ export default function DynamicSections({ pageName, excludeKeys = [] }) {
               </div>
               <div className="dyn-media-col">
                 <div style={{ borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--border)' }}>
-                  <img src={c.url} alt={c.alt || 'Dynamic'} style={{ width: '100%', height: 'auto', display: 'block' }} />
+                  <img src={c.url} alt={c.alt || 'Dynamic'} loading="lazy" decoding="async" style={{ width: '100%', height: 'auto', display: 'block' }} />
                 </div>
               </div>
             </FadeUp>
@@ -121,7 +121,7 @@ export default function DynamicSections({ pageName, excludeKeys = [] }) {
               <div className="dyn-grid-container">
                 {(c.items || []).map((item, itemIdx) => (
                   <div key={item.id || itemIdx} className="dyn-grid-card">
-                    {item.url && <img src={item.url} alt={item.title} className="dyn-grid-img" />}
+                    {item.url && <img src={item.url} alt={item.title} className="dyn-grid-img" loading="lazy" decoding="async" />}
                     <div className="dyn-grid-title">{item.title}</div>
                     {item.subtitle && <div className="dyn-grid-subtitle">{item.subtitle}</div>}
                     {item.description && <div className="dyn-grid-desc">{item.description}</div>}

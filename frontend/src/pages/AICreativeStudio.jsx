@@ -1,6 +1,10 @@
-import { Link } from 'react-router-dom'
 import FadeUp from '../components/FadeUp'
 import { FooterMinimal } from '../components/Footer'
+import CTASection from '../components/CTASection'
+import heroImg from '../assets/images/aicreativestudio-hero.jpg'
+import dramaVisualImg from '../assets/images/aicreativestudio-drama.jpg'
+import ugcVisualImg from '../assets/images/aicreativestudio-ugc.jpg'
+import adsVisualImg from '../assets/images/work-item-ads.jpg'
 
 const tools = [
   'Runway Gen-3', 'Kling AI', 'Sora', 'Midjourney', 'ElevenLabs',
@@ -12,6 +16,7 @@ export default function AICreativeStudio() {
     <>
       {/* HERO */}
       <FadeUp className="page-hero">
+        <img className="hero-bg-img" src={heroImg} alt="" loading="eager" decoding="async" />
         <div className="hero-glow hero-glow-lime"></div>
         <div className="page-tag">Service · 01</div>
         <h1>AI <em>Creative</em><br />Studio.</h1>
@@ -64,7 +69,7 @@ export default function AICreativeStudio() {
             </ul>
           </div>
           <div className="service-visual">
-            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=900&q=80&fit=crop" alt="Drama Production" />
+            <img src={dramaVisualImg} alt="Drama Production" loading="lazy" decoding="async" />
             <div className="visual-icon">🎬</div>
             <div className="visual-badge">Drama Production</div>
             <div className="visual-dots">
@@ -78,7 +83,7 @@ export default function AICreativeStudio() {
         {/* UGC */}
         <FadeUp className="service-row">
           <div className="service-visual alt">
-            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=900&q=80&fit=crop" alt="UGC Social Content" />
+            <img src={ugcVisualImg} alt="UGC Social Content" loading="lazy" decoding="async" />
             <div className="visual-icon">📱</div>
             <div className="visual-badge">UGC · Social Content</div>
             <div className="visual-dots">
@@ -118,7 +123,7 @@ export default function AICreativeStudio() {
             </ul>
           </div>
           <div className="service-visual">
-            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=900&q=80&fit=crop" alt="AI Advertising" />
+            <img src={adsVisualImg} alt="AI Advertising" loading="lazy" decoding="async" />
             <div className="visual-icon">⚡</div>
             <div className="visual-badge">AI Advertising</div>
             <div className="visual-dots">
@@ -143,12 +148,11 @@ export default function AICreativeStudio() {
         </div>
       </FadeUp>
 
-      {/* CTA */}
-      <section className="cta-section">
-        <h2>What's your story?</h2>
-        <p>Tell us the narrative. We'll build the world around it — with AI, with craft, with purpose.</p>
-        <Link to="/contact" className="btn-dark">Start a project →</Link>
-      </section>
+      <CTASection
+        heading="What's your story?"
+        subtext="Tell us the narrative. We'll build the world around it — with AI, with craft, with purpose."
+        btnText="Start a project →"
+      />
 
       <FooterMinimal />
     </>

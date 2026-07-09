@@ -2,6 +2,14 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import FadeUp from '../components/FadeUp'
 import { FooterMinimal } from '../components/Footer'
+import CTASection from '../components/CTASection'
+import heroImg from '../assets/images/aicourses-hero.jpg'
+
+const whyPoints = [
+  { icon: '⚡', title: 'AI is rewriting what creators can do', desc: 'One person with the right AI skills can now produce what used to take a full team. These courses teach you exactly those skills — practically, not theoretically.' },
+  { icon: '🎬', title: 'Built by practitioners, not professors', desc: 'Every course is taught by people actively producing AI content for real clients. You learn from what we\'re doing right now — not what was relevant three years ago.' },
+  { icon: '🏛️', title: 'Grounded in animation fundamentals', desc: 'Pecok Animation Academy brings decades of traditional animation education. We layer AI tools on top of solid creative foundations — not shortcuts, but superpowers.' },
+]
 
 const defaultCourses = [
   {
@@ -76,6 +84,7 @@ export default function AICourses() {
     <>
       {/* HERO */}
       <FadeUp className="page-hero">
+        <img className="hero-bg-img" src={heroImg} alt="" loading="eager" decoding="async" />
         <div className="hero-glow hero-glow-orange"></div>
         <div className="collab-badge collab-badge-orange">With Pecok Animation Academy · Jaipur</div>
         <h1>Learn to make<br /><em>AI</em> that moves.</h1>
@@ -85,21 +94,13 @@ export default function AICourses() {
       {/* WHY */}
       <FadeUp tag="section" className="why-section">
         <div className="why-grid">
-          <div className="why-card">
-            <div className="why-icon">⚡</div>
-            <h4>AI is rewriting what creators can do</h4>
-            <p>One person with the right AI skills can now produce what used to take a full team. These courses teach you exactly those skills — practically, not theoretically.</p>
-          </div>
-          <div className="why-card">
-            <div className="why-icon">🎬</div>
-            <h4>Built by practitioners, not professors</h4>
-            <p>Every course is taught by people actively producing AI content for real clients. You learn from what we're doing right now — not what was relevant three years ago.</p>
-          </div>
-          <div className="why-card">
-            <div className="why-icon">🏛️</div>
-            <h4>Grounded in animation fundamentals</h4>
-            <p>Pecok Animation Academy brings decades of traditional animation education. We layer AI tools on top of solid creative foundations — not shortcuts, but superpowers.</p>
-          </div>
+          {whyPoints.map(w => (
+            <div key={w.title} className="why-card">
+              <div className="why-icon">{w.icon}</div>
+              <h4>{w.title}</h4>
+              <p>{w.desc}</p>
+            </div>
+          ))}
         </div>
       </FadeUp>
 
@@ -175,12 +176,11 @@ export default function AICourses() {
         </div>
       </FadeUp>
 
-      {/* CTA */}
-      <section className="cta-section">
-        <h2>Learn to make<br />things move.</h2>
-        <p>Whether you're starting from zero or levelling up — we have a course for where you are.</p>
-        <Link to="/contact" className="btn-dark">Enquire about courses →</Link>
-      </section>
+      <CTASection
+        heading="Learn to make<br />things move."
+        subtext="Whether you're starting from zero or levelling up — we have a course for where you are."
+        btnText="Enquire about courses →"
+      />
 
       <FooterMinimal copy="© 2025 EskeeWalker Strategies × Pecok Animation Academy" />
     </>

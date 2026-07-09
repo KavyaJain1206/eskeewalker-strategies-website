@@ -3,6 +3,13 @@ import { useState, useEffect } from 'react'
 import FadeUp from '../components/FadeUp'
 import { FooterFull } from '../components/Footer'
 import DynamicSections from '../components/DynamicSections'
+import CTASection from '../components/CTASection'
+import heroVideo from '../assets/video/home-hero.mp4'
+import dramaMicrodramaImg from '../assets/images/work-item-drama-microdrama.jpg'
+import ugcSocialImg from '../assets/images/work-item-ugc-social.jpg'
+import sustainabilityNetZeroImg from '../assets/images/work-item-sustainability-netzero.jpg'
+import adsImg from '../assets/images/work-item-ads.jpg'
+import dramaCharacterImg from '../assets/images/work-item-drama-character.jpg'
 
 const marqueeItems = [
   'AI Animation', 'Drama Production', 'UGC Content', 'AI Ads',
@@ -33,6 +40,17 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="hero">
+        <video
+          className="hero-video"
+          src={heroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          onEnded={e => { e.target.currentTime = 0; e.target.play() }}
+        />
+        <div className="hero-video-overlay"></div>
         <div className="hero-bg"></div>
         <div className="hero-noise"></div>
         <div className="hero-tag">AI Creative Studio · Jaipur, India</div>
@@ -131,7 +149,7 @@ export default function Home() {
         <FadeUp className="work-grid">
           <div className="work-item">
             <div className="work-placeholder">
-              <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200&q=80&fit=crop" alt="AI Drama Production" />
+              <img src={dramaMicrodramaImg} alt="AI Drama Production" loading="lazy" decoding="async" />
             </div>
             <div className="work-label">AI Drama</div>
             <div className="work-overlay">
@@ -141,7 +159,7 @@ export default function Home() {
           </div>
           <div className="work-item">
             <div className="work-placeholder">
-              <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&q=80&fit=crop" alt="UGC Social Content" />
+              <img src={ugcSocialImg} alt="UGC Social Content" loading="lazy" decoding="async" />
             </div>
             <div className="work-label">Social Content</div>
             <div className="work-overlay">
@@ -151,7 +169,7 @@ export default function Home() {
           </div>
           <div className="work-item">
             <div className="work-placeholder">
-              <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80&fit=crop" alt="Sustainability Communication" />
+              <img src={sustainabilityNetZeroImg} alt="Sustainability Communication" loading="lazy" decoding="async" />
             </div>
             <div className="work-label">Sustainability</div>
             <div className="work-overlay">
@@ -161,7 +179,7 @@ export default function Home() {
           </div>
           <div className="work-item">
             <div className="work-placeholder">
-              <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80&fit=crop" alt="AI Advertisement" />
+              <img src={adsImg} alt="AI Advertisement" loading="lazy" decoding="async" />
             </div>
             <div className="work-label">AI Ads</div>
             <div className="work-overlay">
@@ -171,7 +189,7 @@ export default function Home() {
           </div>
           <div className="work-item">
             <div className="work-placeholder">
-              <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80&fit=crop" alt="AI Animation" />
+              <img src={dramaCharacterImg} alt="AI Animation" loading="lazy" decoding="async" />
             </div>
             <div className="work-label">Animation</div>
             <div className="work-overlay">
@@ -242,12 +260,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* CTA */}
-      <section className="cta-section">
-        <h2>Ready to make<br />something real?</h2>
-        <p>Tell us what you're building. We'll tell you what it could look like.</p>
-        <Link to="/contact" className="btn-dark">Start a conversation →</Link>
-      </section>
+      <CTASection heading="Ready to make<br />something real?" subtext="Tell us what you're building. We'll tell you what it could look like." />
 
       <DynamicSections pageName="home" excludeKeys={['hero', 'statement']} />
 

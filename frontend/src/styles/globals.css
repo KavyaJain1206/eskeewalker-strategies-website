@@ -128,6 +128,29 @@ nav {
   transition: opacity 0.2s;
 }
 .nav-cta:hover { opacity: 0.85; }
+.nav-cta-mobile { display: none; }
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+  transition: transform 0.25s, opacity 0.25s;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ── ANIMATIONS ── */
 .fade-up {
@@ -345,6 +368,15 @@ footer {
   padding: 0 3rem 5rem;
   position: relative;
   overflow: hidden;
+}
+.hero-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.hero-video-overlay {
+  position: absolute; inset: 0;
+  background: rgba(8,8,8,0.6);
 }
 .hero-bg {
   position: absolute; inset: 0;
@@ -591,7 +623,7 @@ footer {
 .tool-chip span { color: var(--accent); }
 
 /* ── SUSTAINABILITY PAGE ── */
-.hero-bg-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.06; pointer-events: none; }
+.hero-bg-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; pointer-events: none; }
 .collab-badge { display: inline-flex; align-items: center; gap: 0.6rem; border-radius: 100px; padding: 0.4rem 1rem; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; margin-bottom: 1.5rem; position: relative; }
 .collab-badge-green { background: var(--green-soft); border: 1px solid rgba(182,241,58,0.2); color: var(--accent); }
 .collab-badge-orange { background: rgba(255,92,53,0.1); border: 1px solid rgba(255,92,53,0.2); color: var(--accent2); }
@@ -616,9 +648,8 @@ footer {
 .flow-section { padding: 0 3rem 7rem; }
 .flow-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 3rem; }
 .flow-step { padding: 2rem; border: 1px solid var(--border); border-right: none; position: relative; background: var(--bg2); }
-.flow-step:last-child { border-right: 1px solid var(--border); }
 .flow-step:first-child { border-radius: var(--radius) 0 0 var(--radius); }
-.flow-step:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+.flow-step:last-child { border-right: 1px solid var(--border); border-radius: 0 var(--radius) var(--radius) 0; }
 .flow-arrow { position: absolute; right: -13px; top: 50%; transform: translateY(-50%); width: 25px; height: 25px; background: var(--bg); border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: var(--accent); z-index: 1; }
 .flow-step:last-child .flow-arrow { display: none; }
 .flow-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 1rem; }
@@ -839,5 +870,103 @@ footer {
   font-size: 0.9rem;
   color: var(--muted);
   line-height: 1.5;
+}
+
+/* ── RESPONSIVE (tablet & mobile) ──
+   Below 768px almost none of the multi-column grids above had a
+   collapse rule, and the nav had no mobile menu — confirmed via
+   real mobile-viewport rendering (412px) that this produced
+   unusable layouts (e.g. the contact form and most grid columns
+   were squeezed to <100px or pushed off-screen). Everything below
+   is additive (max-width scoped) so desktop/tablet-landscape
+   (>768px) is pixel-identical to before. */
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.25rem; }
+  .nav-toggle { display: flex; z-index: 101; }
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(8,8,8,0.98);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .nav-links.open { max-height: 80vh; overflow-y: auto; }
+  .nav-links li { width: 100%; }
+  .nav-links a { display: block; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border); }
+  .nav-cta-desktop { display: none; }
+  .nav-cta-mobile { display: block; padding: 1.25rem; }
+  .nav-cta-mobile .nav-cta { display: block; text-align: center; }
+
+  section { padding: 4rem 1.5rem; }
+  .page-hero { padding: 7rem 1.5rem 3rem; }
+  .hero { padding: 0 1.5rem 3rem; }
+  .hero-scroll { display: none; }
+  .cta-section { padding: 4rem 1.5rem; }
+  footer { padding: 3rem 1.5rem 1.5rem; }
+  .footer-top { flex-direction: column; gap: 2rem; }
+  .footer-nav { flex-direction: column; gap: 1.5rem; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .footer-minimal { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; gap: 1rem; }
+
+  .services-header, .work-header { flex-wrap: wrap; gap: 1rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .work-grid { grid-template-columns: 1fr; }
+  .work-item, .work-item:nth-child(n) { grid-column: span 1; aspect-ratio: 16/10; }
+  .process-steps { grid-template-columns: 1fr; }
+  .process-step { border-right: none; border-bottom: 1px solid var(--border); }
+  .process-step:last-child { border-bottom: none; }
+  .partners-inner { flex-wrap: wrap; gap: 1.5rem; }
+  .partners-logos { flex-wrap: wrap; gap: 1.5rem; }
+
+  .work-grid-full { grid-template-columns: 1fr; }
+  .work-item-full.large, .work-item-full.medium, .work-item-full.half, .work-item-full.third {
+    grid-column: span 1;
+  }
+
+  .intro-strip { grid-template-columns: 1fr; padding: 2rem; gap: 2rem; margin: 0 1.5rem; }
+  .intro-stats { flex-wrap: wrap; gap: 1.25rem 2rem; }
+  .service-row { grid-template-columns: 1fr; }
+  .service-visual { min-height: 220px; }
+  .service-detail, .service-detail.dark { padding: 2rem; }
+
+  .problem-grid { grid-template-columns: 1fr; }
+  .offerings-grid { grid-template-columns: 1fr; }
+  .collab-feature { grid-template-columns: 1fr; padding: 2rem; gap: 2rem; margin: 0 1.5rem 4rem; }
+  .clients-grid { grid-template-columns: 1fr 1fr; }
+  .flow-steps { grid-template-columns: 1fr; margin-top: 2rem; }
+  .flow-step { border-right: none; border-bottom: 1px solid var(--border); }
+  .flow-step:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+  .flow-step:last-child { border-bottom: none; border-radius: 0 0 var(--radius) var(--radius); }
+  .flow-arrow { right: auto; left: 50%; top: auto; bottom: -13px; transform: translateX(-50%) rotate(90deg); }
+
+  .why-grid { grid-template-columns: 1fr; }
+  .courses-grid { grid-template-columns: 1fr; }
+  .featured-course { grid-column: span 1; grid-template-columns: 1fr; }
+  .featured-left, .featured-right { padding: 2rem; }
+  .featured-right { border-left: none; border-top: 1px solid var(--border); }
+  .academy-collab { grid-template-columns: 1fr; padding: 2rem; gap: 2rem; text-align: center; margin: 0 1.5rem 4rem; }
+  .academy-logo-block { margin: 0 auto; }
+
+  .founder-section { grid-template-columns: 1fr; gap: 3rem; }
+  .founder-visual { position: static; top: auto; }
+  .values-grid { grid-template-columns: 1fr; }
+  .eco-grid { grid-template-columns: 1fr; }
+
+  .contact-layout { grid-template-columns: 1fr; min-height: auto; }
+  .contact-left, .contact-right { padding: 6rem 1.5rem 3rem; }
+  .contact-left { border-right: none; border-bottom: 1px solid var(--border); }
+}
+
+@media (max-width: 480px) {
+  .clients-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .why-grid, .offerings-grid { gap: 1px; }
 }
 

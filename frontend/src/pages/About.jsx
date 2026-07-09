@@ -1,13 +1,28 @@
-import { Link } from 'react-router-dom'
 import FadeUp from '../components/FadeUp'
 import { FooterMinimal } from '../components/Footer'
 import DynamicSections from '../components/DynamicSections'
+import CTASection from '../components/CTASection'
+import heroImg from '../assets/images/about-hero.jpg'
+
+const values = [
+  { title: 'Story before tool', desc: 'Every project starts with the narrative. What\'s the emotion? What\'s the purpose? What needs to change in the viewer? We answer those questions before we open a single AI tool. The brief makes the video — not the model.' },
+  { title: 'AI amplifies. Humans curate.', desc: 'We use AI to generate. We use judgment to select, shape, and finish. The human eye is still the most important tool in the studio. We never let outputs go without a human decision being made about every frame.' },
+  { title: 'Credibility over hype', desc: 'AI video is full of novelty. Brands are chasing the shiny. We\'re not interested in impressive-for-a-second — we\'re interested in effective. Content that holds up. Storytelling that earns trust over time.' },
+  { title: 'Impact has a place in every frame', desc: 'We come from sustainable marketing. That doesn\'t go away. We think about what we make, who we make it for, and whether it\'s adding something real to the world. The best content serves both the brand and its audience.' },
+]
+
+const ecosystem = [
+  { mark: 'EW', title: 'EskeeWalker Strategies', desc: 'The core studio — AI creative production, brand storytelling, sustainability communication. The engine behind everything.', tag: 'Core Studio' },
+  { mark: 'CD', title: 'Climate Decode', desc: 'Our partner for all sustainability and climate communication work. They bring the science, the credibility, and the climate expertise. We bring the story and the production.', tag: 'Partner — Sustainability' },
+  { mark: 'PA', title: 'Pecok Animation Academy', desc: 'Jaipur\'s established animation and design education institution. Our partner for AI courses — their studio space, faculty network, and student community, combined with our AI production expertise.', tag: 'Partner — Education' },
+]
 
 export default function About() {
   return (
     <>
       {/* HERO */}
       <FadeUp className="page-hero">
+        <img className="hero-bg-img" src={heroImg} alt="" loading="eager" decoding="async" />
         <div className="hero-glow hero-glow-center"></div>
         <div className="page-tag">About</div>
         <h1>Built on the belief that<br /><em>AI amplifies</em> great stories.</h1>
@@ -17,7 +32,7 @@ export default function About() {
       <FadeUp className="founder-section">
         <div className="founder-visual">
           <div className="founder-photo-frame">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80&fit=crop&crop=face" alt="Jitaksh Jain — Founder" />
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80&fit=crop&crop=face" alt="Jitaksh Jain — Founder" decoding="async" />
           </div>
           <div className="founder-name">Jitaksh Jain</div>
           <div className="founder-role">Founder, EskeeWalker Strategies</div>
@@ -39,26 +54,13 @@ export default function About() {
         <div className="section-label">How we think</div>
         <h2 className="section-title">What we believe.</h2>
         <div className="values-grid">
-          <div className="value-card">
-            <div className="value-num">01</div>
-            <h4>Story before tool</h4>
-            <p>Every project starts with the narrative. What's the emotion? What's the purpose? What needs to change in the viewer? We answer those questions before we open a single AI tool. The brief makes the video — not the model.</p>
-          </div>
-          <div className="value-card">
-            <div className="value-num">02</div>
-            <h4>AI amplifies. Humans curate.</h4>
-            <p>We use AI to generate. We use judgment to select, shape, and finish. The human eye is still the most important tool in the studio. We never let outputs go without a human decision being made about every frame.</p>
-          </div>
-          <div className="value-card">
-            <div className="value-num">03</div>
-            <h4>Credibility over hype</h4>
-            <p>AI video is full of novelty. Brands are chasing the shiny. We're not interested in impressive-for-a-second — we're interested in effective. Content that holds up. Storytelling that earns trust over time.</p>
-          </div>
-          <div className="value-card">
-            <div className="value-num">04</div>
-            <h4>Impact has a place in every frame</h4>
-            <p>We come from sustainable marketing. That doesn't go away. We think about what we make, who we make it for, and whether it's adding something real to the world. The best content serves both the brand and its audience.</p>
-          </div>
+          {values.map((v, i) => (
+            <div key={v.title} className="value-card">
+              <div className="value-num">{String(i + 1).padStart(2, '0')}</div>
+              <h4>{v.title}</h4>
+              <p>{v.desc}</p>
+            </div>
+          ))}
         </div>
       </FadeUp>
 
@@ -67,33 +69,22 @@ export default function About() {
         <div className="section-label">Our ecosystem</div>
         <h2 className="section-title">Who we work with.</h2>
         <div className="eco-grid">
-          <div className="eco-card">
-            <div className="eco-mark">EW</div>
-            <h4>EskeeWalker Strategies</h4>
-            <p>The core studio — AI creative production, brand storytelling, sustainability communication. The engine behind everything.</p>
-            <span className="eco-tag">Core Studio</span>
-          </div>
-          <div className="eco-card">
-            <div className="eco-mark">CD</div>
-            <h4>Climate Decode</h4>
-            <p>Our partner for all sustainability and climate communication work. They bring the science, the credibility, and the climate expertise. We bring the story and the production.</p>
-            <span className="eco-tag">Partner — Sustainability</span>
-          </div>
-          <div className="eco-card">
-            <div className="eco-mark">PA</div>
-            <h4>Pecok Animation Academy</h4>
-            <p>Jaipur's established animation and design education institution. Our partner for AI courses — their studio space, faculty network, and student community, combined with our AI production expertise.</p>
-            <span className="eco-tag">Partner — Education</span>
-          </div>
+          {ecosystem.map(e => (
+            <div key={e.title} className="eco-card">
+              <div className="eco-mark">{e.mark}</div>
+              <h4>{e.title}</h4>
+              <p>{e.desc}</p>
+              <span className="eco-tag">{e.tag}</span>
+            </div>
+          ))}
         </div>
       </FadeUp>
 
-      {/* CTA */}
-      <section className="cta-section">
-        <h2>Let's make something<br />worth watching.</h2>
-        <p>We're selective about the work we take on. If your project has a real story inside it, we want to hear it.</p>
-        <Link to="/contact" className="btn-dark">Get in touch →</Link>
-      </section>
+      <CTASection
+        heading="Let's make something<br />worth watching."
+        subtext="We're selective about the work we take on. If your project has a real story inside it, we want to hear it."
+        btnText="Get in touch →"
+      />
 
       <DynamicSections pageName="about" excludeKeys={['hero', 'founder']} />
 
