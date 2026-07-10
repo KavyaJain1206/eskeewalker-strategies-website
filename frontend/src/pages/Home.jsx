@@ -37,7 +37,7 @@ const marqueeItems = [
 
 export default function Home() {
   const [hero, setHero] = useState({
-    title: "Stories built by AI.\nFelt by humans.",
+    title: "Stories built by AI,\nFelt by humans.",
     subtitle: "We produce AI drama, UGC, and ads for brands that want to be remembered — and turn sustainability data into stories people actually watch."
   })
 
