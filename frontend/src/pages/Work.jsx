@@ -94,7 +94,10 @@ export default function Work() {
       })
       .then(data => {
         if (data && data.length > 0) {
-          setItems(data)
+          setItems(data.map(d => ({
+            ...d,
+            img: typeof d.img === 'string' ? { pc: d.img, laptop: d.img, mobile: d.img } : d.img,
+          })))
         }
       })
       .catch(err => console.log('CMS fetch failed, using fallback static data:', err))

@@ -16,7 +16,7 @@ import adsLaptop from '../assets/laptop/ai-ads.webp'
 import adsMobile from '../assets/mobile/ai-ads.webp'
 
 const tools = [
-  'Runway Gen-3', 'Kling AI', 'Sora', 'Midjourney', 'ElevenLabs',
+  'Runway Gen-3', 'Kling AI', 'Midjourney', 'ElevenLabs',
   'Stable Diffusion', 'Pika Labs', 'Adobe Firefly', 'CapCut Pro', 'DaVinci Resolve',
 ]
 

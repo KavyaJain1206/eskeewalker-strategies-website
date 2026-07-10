@@ -194,7 +194,7 @@ def seed_database():
                     "level": "beginner",
                     "modules": ["GenAI Animation Basics", "Advanced Camera Prompting", "Lip Sync & Audio Integration", "Video Editing for AI Content"],
                     "duration": "4 weeks",
-                    "price": "₹12,000",
+                    "price": "₹24,000",
                     "cta_link": "/contact",
                     "order_index": 0
                 },
@@ -204,7 +204,7 @@ def seed_database():
                     "level": "intermediate",
                     "modules": ["Consistent Character Prompts", "Style Consistency in Midjourney", "Virtual Set Designing", "Upscaling & Retouching Workflows"],
                     "duration": "4 weeks",
-                    "price": "₹15,000",
+                    "price": "₹30,000",
                     "cta_link": "/contact",
                     "order_index": 1
                 }
