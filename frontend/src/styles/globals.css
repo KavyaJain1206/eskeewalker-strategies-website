@@ -473,9 +473,10 @@ footer {
   letter-spacing: -0.04em;
   position: relative;
   max-width: 14ch;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.45);
 }
 .hero h1 em { font-style: normal; color: var(--accent); }
-.hero-sub { margin-top: 2rem; color: var(--muted); font-size: 1rem; max-width: 38ch; line-height: 1.7; position: relative; }
+.hero-sub { margin-top: 2rem; color: var(--muted); font-size: 1rem; max-width: 38ch; line-height: 1.7; position: relative; text-shadow: 0 2px 12px rgba(0,0,0,0.5); }
 .hero-actions { margin-top: 3rem; display: flex; gap: 1rem; align-items: center; position: relative; }
 .hero-scroll {
   position: absolute;

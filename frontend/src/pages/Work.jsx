@@ -131,7 +131,7 @@ export default function Work() {
         {visible.map((item, idx) => (
           <div key={item.id} className={`work-item-full ${item.size}`}>
             <div className="work-thumb">
-              <ResponsiveImage pc={item.img.pc} laptop={item.img.laptop} mobile={item.img.mobile} alt={item.alt} loading={idx === 0 ? 'eager' : 'lazy'} />
+              <ResponsiveImage pc={item.img.pc} laptop={item.img.laptop} mobile={item.img.mobile} alt={item.alt} loading={idx < 2 ? 'eager' : 'lazy'} />
             </div>
             <div className="work-play">▶</div>
             <div className={`case-label${item.featured ? ' featured' : ''}`}>{item.label}</div>
