@@ -3,7 +3,10 @@ import { useState, useEffect } from 'react'
 import FadeUp from '../components/FadeUp'
 import { FooterMinimal } from '../components/Footer'
 import CTASection from '../components/CTASection'
-import heroImg from '../assets/images/aicourses-hero.jpg'
+import ResponsiveImage from '../components/ResponsiveImage'
+import heroPc from '../assets/pc/learn-to-make-ai-that-moves.jpg'
+import heroLaptop from '../assets/laptop/learn-to-make-ai-that-moves.jpg'
+import heroMobile from '../assets/mobile/learn-to-make-ai-that-moves.jpg'
 
 const whyPoints = [
   { icon: '⚡', title: 'AI is rewriting what creators can do', desc: 'One person with the right AI skills can now produce what used to take a full team. These courses teach you exactly those skills — practically, not theoretically.' },
@@ -84,11 +87,15 @@ export default function AICourses() {
     <>
       {/* HERO */}
       <FadeUp className="page-hero">
-        <img className="hero-bg-img" src={heroImg} alt="" loading="eager" decoding="async" />
         <div className="hero-glow hero-glow-orange"></div>
-        <div className="collab-badge collab-badge-orange">With Pecok Animation Academy · Jaipur</div>
-        <h1>Learn to make<br /><em>AI</em> that moves.</h1>
-        <p>Hands-on courses in animation, design, and generative AI — built for the next generation of creators who want to produce at the level of a studio, without being one.</p>
+        <div className="page-hero-text">
+          <div className="collab-badge collab-badge-orange">With Pecok Animation Academy · Jaipur</div>
+          <h1 className="compact">Learn to make<br /><em>AI</em> that moves.</h1>
+          <p>Hands-on courses in animation, design, and generative AI — built for the next generation of creators who want to produce at the level of a studio, without being one.</p>
+        </div>
+        <div className="page-hero-media">
+          <ResponsiveImage pc={heroPc} laptop={heroLaptop} mobile={heroMobile} alt="" loading="eager" />
+        </div>
       </FadeUp>
 
       {/* WHY */}

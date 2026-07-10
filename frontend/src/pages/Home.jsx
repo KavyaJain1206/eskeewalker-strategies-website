@@ -4,12 +4,31 @@ import FadeUp from '../components/FadeUp'
 import { FooterFull } from '../components/Footer'
 import DynamicSections from '../components/DynamicSections'
 import CTASection from '../components/CTASection'
-import heroVideo from '../assets/video/home-hero.mp4'
-import dramaMicrodramaImg from '../assets/images/work-item-drama-microdrama.jpg'
-import ugcSocialImg from '../assets/images/work-item-ugc-social.jpg'
-import sustainabilityNetZeroImg from '../assets/images/work-item-sustainability-netzero.jpg'
-import adsImg from '../assets/images/work-item-ads.jpg'
-import dramaCharacterImg from '../assets/images/work-item-drama-character.jpg'
+import ResponsiveImage from '../components/ResponsiveImage'
+import heroVideoPc from '../assets/pc/website-template-video.mp4'
+import heroVideoMobile from '../assets/mobile/website-template-mobile-size-video.mp4'
+import dramaPc from '../assets/pc/drama-production-ai-microdrama-brand-story.jpg'
+import dramaLaptop from '../assets/laptop/drama-production-ai-microdrama-brand-story.jpg'
+import dramaMobile from '../assets/mobile/drama-production.jpg'
+import ugcPc from '../assets/pc/ugc-campaign-client-social-campaign.jpg'
+import ugcLaptop from '../assets/laptop/ugc-campaign-client-social-campaign.jpg'
+import ugcMobile from '../assets/mobile/ugc-campaign.jpg'
+import sustainabilityPc from '../assets/pc/esg-annual-report-animated-visual-story.jpg'
+import sustainabilityLaptop from '../assets/laptop/esg-annual-report-animated-visual-story.jpg'
+import sustainabilityMobile from '../assets/mobile/esg-annual-report-animated-visual-story.jpg'
+import adsPc from '../assets/pc/ai-ads.jpg'
+import adsLaptop from '../assets/laptop/ai-ads.jpg'
+import adsMobile from '../assets/mobile/ai-ads.jpg'
+import animationPc from '../assets/pc/ai-animation-brand-character-design.jpg'
+import animationLaptop from '../assets/laptop/ai-animation-brand-character-design.jpg'
+import animationMobile from '../assets/mobile/ai-animation.jpg'
+import serviceCreativePc from '../assets/pc/ugc-and-social-content.jpg'
+import serviceCreativeLaptop from '../assets/laptop/ugc-and-social-content.jpg'
+import serviceCreativeMobile from '../assets/mobile/ugc-and-social-content.jpg'
+import serviceSustainabilityPc from '../assets/pc/ai-ad-performance-ad-30-sec.jpg'
+import serviceSustainabilityLaptop from '../assets/laptop/ai-ad-performance-ad-30-sec.jpg'
+import serviceSustainabilityMobile from '../assets/mobile/ai-ad.jpg'
+import serviceCoursesImg from '../assets/images/aicourses-card.jpg'
 
 const marqueeItems = [
   'AI Animation', 'Drama Production', 'UGC Content', 'AI Ads',
@@ -42,16 +61,16 @@ export default function Home() {
       <section className="hero">
         <video
           className="hero-video"
-          src={heroVideo}
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
           onEnded={e => { e.target.currentTime = 0; e.target.play() }}
-        />
-        <div className="hero-video-overlay"></div>
-        <div className="hero-bg"></div>
+        >
+          <source src={heroVideoMobile} media="(max-width: 767px)" />
+          <source src={heroVideoPc} />
+        </video>
         <div className="hero-noise"></div>
         <div className="hero-tag">AI Creative Studio · Jaipur, India</div>
         <h1>
@@ -97,42 +116,54 @@ export default function Home() {
         </FadeUp>
         <FadeUp className="services-grid">
           <Link to="/ai-creative-studio" className="service-card">
-            <div className="service-icon">🎬</div>
-            <div className="service-num">01</div>
-            <h3>AI Creative Studio</h3>
-            <p>Drama productions, UGC, and ads made with generative AI. Cinematic quality at the speed of ideas.</p>
-            <div className="service-tags">
-              <span className="service-tag">Drama</span>
-              <span className="service-tag">UGC</span>
-              <span className="service-tag">AI Ads</span>
+            <ResponsiveImage className="service-card-bg" pc={serviceCreativePc} laptop={serviceCreativeLaptop} mobile={serviceCreativeMobile} alt="" loading="lazy" />
+            <div className="service-card-overlay"></div>
+            <div className="service-card-content">
+              <div className="service-icon">🎬</div>
+              <div className="service-num">01</div>
+              <h3>AI Creative Studio</h3>
+              <p>Drama productions, UGC, and ads made with generative AI. Cinematic quality at the speed of ideas.</p>
+              <div className="service-tags">
+                <span className="service-tag">Drama</span>
+                <span className="service-tag">UGC</span>
+                <span className="service-tag">AI Ads</span>
+              </div>
+              <div className="service-arrow">↗</div>
             </div>
-            <div className="service-arrow">↗</div>
           </Link>
 
           <Link to="/sustainability" className="service-card">
-            <div className="service-icon">🌿</div>
-            <div className="service-num">02</div>
-            <h3>Sustainability Communication</h3>
-            <p>In collaboration with Climate Decode — we turn ESG reports, sustainability goals, and climate data into visual stories that actually land.</p>
-            <div className="service-tags">
-              <span className="service-tag">ESG Visuals</span>
-              <span className="service-tag">Animation</span>
-              <span className="service-tag">Campaigns</span>
+            <ResponsiveImage className="service-card-bg" pc={serviceSustainabilityPc} laptop={serviceSustainabilityLaptop} mobile={serviceSustainabilityMobile} alt="" loading="lazy" />
+            <div className="service-card-overlay"></div>
+            <div className="service-card-content">
+              <div className="service-icon">🌿</div>
+              <div className="service-num">02</div>
+              <h3>Sustainability Communication</h3>
+              <p>In collaboration with Climate Decode — we turn ESG reports, sustainability goals, and climate data into visual stories that actually land.</p>
+              <div className="service-tags">
+                <span className="service-tag">ESG Visuals</span>
+                <span className="service-tag">Animation</span>
+                <span className="service-tag">Campaigns</span>
+              </div>
+              <div className="service-arrow">↗</div>
             </div>
-            <div className="service-arrow">↗</div>
           </Link>
 
           <Link to="/courses" className="service-card">
-            <div className="service-icon">🎓</div>
-            <div className="service-num">03</div>
-            <h3>AI Courses</h3>
-            <p>With Pecok Animation Academy — hands-on courses in animation, design, and generative AI for the next generation of creators.</p>
-            <div className="service-tags">
-              <span className="service-tag">Animation</span>
-              <span className="service-tag">Design</span>
-              <span className="service-tag">GenAI</span>
+            <img className="service-card-bg" src={serviceCoursesImg} alt="" loading="lazy" decoding="async" />
+            <div className="service-card-overlay"></div>
+            <div className="service-card-content">
+              <div className="service-icon">🎓</div>
+              <div className="service-num">03</div>
+              <h3>AI Courses</h3>
+              <p>With Pecok Animation Academy — hands-on courses in animation, design, and generative AI for the next generation of creators.</p>
+              <div className="service-tags">
+                <span className="service-tag">Animation</span>
+                <span className="service-tag">Design</span>
+                <span className="service-tag">GenAI</span>
+              </div>
+              <div className="service-arrow">↗</div>
             </div>
-            <div className="service-arrow">↗</div>
           </Link>
         </FadeUp>
       </section>
@@ -149,7 +180,7 @@ export default function Home() {
         <FadeUp className="work-grid">
           <div className="work-item">
             <div className="work-placeholder">
-              <img src={dramaMicrodramaImg} alt="AI Drama Production" loading="lazy" decoding="async" />
+              <ResponsiveImage pc={dramaPc} laptop={dramaLaptop} mobile={dramaMobile} alt="AI Drama Production" loading="lazy" />
             </div>
             <div className="work-label">AI Drama</div>
             <div className="work-overlay">
@@ -159,7 +190,7 @@ export default function Home() {
           </div>
           <div className="work-item">
             <div className="work-placeholder">
-              <img src={ugcSocialImg} alt="UGC Social Content" loading="lazy" decoding="async" />
+              <ResponsiveImage pc={ugcPc} laptop={ugcLaptop} mobile={ugcMobile} alt="UGC Social Content" loading="lazy" />
             </div>
             <div className="work-label">Social Content</div>
             <div className="work-overlay">
@@ -169,7 +200,7 @@ export default function Home() {
           </div>
           <div className="work-item">
             <div className="work-placeholder">
-              <img src={sustainabilityNetZeroImg} alt="Sustainability Communication" loading="lazy" decoding="async" />
+              <ResponsiveImage pc={sustainabilityPc} laptop={sustainabilityLaptop} mobile={sustainabilityMobile} alt="Sustainability Communication" loading="lazy" />
             </div>
             <div className="work-label">Sustainability</div>
             <div className="work-overlay">
@@ -179,7 +210,7 @@ export default function Home() {
           </div>
           <div className="work-item">
             <div className="work-placeholder">
-              <img src={adsImg} alt="AI Advertisement" loading="lazy" decoding="async" />
+              <ResponsiveImage pc={adsPc} laptop={adsLaptop} mobile={adsMobile} alt="AI Advertisement" loading="lazy" />
             </div>
             <div className="work-label">AI Ads</div>
             <div className="work-overlay">
@@ -189,7 +220,7 @@ export default function Home() {
           </div>
           <div className="work-item">
             <div className="work-placeholder">
-              <img src={dramaCharacterImg} alt="AI Animation" loading="lazy" decoding="async" />
+              <ResponsiveImage pc={animationPc} laptop={animationLaptop} mobile={animationMobile} alt="AI Animation" loading="lazy" />
             </div>
             <div className="work-label">Animation</div>
             <div className="work-overlay">

@@ -2,7 +2,10 @@ import { Link } from 'react-router-dom'
 import FadeUp from '../components/FadeUp'
 import { FooterMinimal } from '../components/Footer'
 import CTASection from '../components/CTASection'
-import heroImg from '../assets/images/sustainability-hero.jpg'
+import ResponsiveImage from '../components/ResponsiveImage'
+import heroPc from '../assets/pc/sustainability-tha-move-people.jpg'
+import heroLaptop from '../assets/laptop/sustainability-tha-move-people.jpg'
+import heroMobile from '../assets/mobile/sustainability-tha-move-people.jpg'
 
 const problems = [
   { icon: '📄', title: 'The problem with sustainability content today', desc: 'Most sustainability communication is buried in annual reports, dense PDFs, and jargon-heavy press releases. The intent is real. The impact is near zero. Nobody is watching, sharing, or feeling it.' },
@@ -25,14 +28,18 @@ export default function SustainabilityComm() {
     <>
       {/* HERO */}
       <FadeUp className="page-hero">
-        <img className="hero-bg-img" src={heroImg} alt="" />
         <div className="hero-glow hero-glow-green"></div>
-        <div className="collab-badge collab-badge-green">
-          <div className="collab-dot"></div>
-          In collaboration with Climate Decode
+        <div className="page-hero-text">
+          <div className="collab-badge collab-badge-green">
+            <div className="collab-dot"></div>
+            In collaboration with Climate Decode
+          </div>
+          <h1 className="compact">Sustainability<br />that <em>moves</em> people.</h1>
+          <p>Your ESG reports, climate commitments, and sustainability goals are important. But nobody's watching a 40-page PDF. We turn your data into visual stories that people actually feel.</p>
         </div>
-        <h1>Sustainability<br />that <em>moves</em> people.</h1>
-        <p>Your ESG reports, climate commitments, and sustainability goals are important. But nobody's watching a 40-page PDF. We turn your data into visual stories that people actually feel.</p>
+        <div className="page-hero-media">
+          <ResponsiveImage pc={heroPc} laptop={heroLaptop} mobile={heroMobile} alt="" loading="eager" />
+        </div>
       </FadeUp>
 
       {/* PROBLEM */}

@@ -3,6 +3,7 @@ import { FooterMinimal } from '../components/Footer'
 import DynamicSections from '../components/DynamicSections'
 import CTASection from '../components/CTASection'
 import heroImg from '../assets/images/about-hero.jpg'
+import founderImg from '../assets/images/founder.jpg'
 
 const values = [
   { title: 'Story before tool', desc: 'Every project starts with the narrative. What\'s the emotion? What\'s the purpose? What needs to change in the viewer? We answer those questions before we open a single AI tool. The brief makes the video — not the model.' },
@@ -22,17 +23,21 @@ export default function About() {
     <>
       {/* HERO */}
       <FadeUp className="page-hero">
-        <img className="hero-bg-img" src={heroImg} alt="" loading="eager" decoding="async" />
         <div className="hero-glow hero-glow-center"></div>
-        <div className="page-tag">About</div>
-        <h1>Built on the belief that<br /><em>AI amplifies</em> great stories.</h1>
+        <div className="page-hero-text">
+          <div className="page-tag">About</div>
+          <h1 className="compact">Built on the belief that<br /><em>AI amplifies</em> great stories.</h1>
+        </div>
+        <div className="page-hero-media">
+          <img src={heroImg} alt="" loading="eager" decoding="async" />
+        </div>
       </FadeUp>
 
       {/* FOUNDER */}
       <FadeUp className="founder-section">
         <div className="founder-visual">
           <div className="founder-photo-frame">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80&fit=crop&crop=face" alt="Jitaksh Jain — Founder" decoding="async" />
+            <img src={founderImg} alt="Jitaksh Jain — Founder" decoding="async" />
           </div>
           <div className="founder-name">Jitaksh Jain</div>
           <div className="founder-role">Founder, EskeeWalker Strategies</div>

@@ -1,10 +1,19 @@
 import FadeUp from '../components/FadeUp'
 import { FooterMinimal } from '../components/Footer'
 import CTASection from '../components/CTASection'
-import heroImg from '../assets/images/aicreativestudio-hero.jpg'
-import dramaVisualImg from '../assets/images/aicreativestudio-drama.jpg'
-import ugcVisualImg from '../assets/images/aicreativestudio-ugc.jpg'
-import adsVisualImg from '../assets/images/work-item-ads.jpg'
+import ResponsiveImage from '../components/ResponsiveImage'
+import heroPc from '../assets/pc/ai-creative.jpg'
+import heroLaptop from '../assets/laptop/ai-creative.jpg'
+import heroMobile from '../assets/mobile/ai-creative.jpg'
+import dramaPc from '../assets/pc/drama-productions.jpg'
+import dramaLaptop from '../assets/laptop/drama-productions.jpg'
+import dramaMobile from '../assets/mobile/drama-productions.jpg'
+import ugcPc from '../assets/pc/ugc-and-social-content.jpg'
+import ugcLaptop from '../assets/laptop/ugc-and-social-content.jpg'
+import ugcMobile from '../assets/mobile/ugc-and-social-content.jpg'
+import adsPc from '../assets/pc/ai-ads.jpg'
+import adsLaptop from '../assets/laptop/ai-ads.jpg'
+import adsMobile from '../assets/mobile/ai-ads.jpg'
 
 const tools = [
   'Runway Gen-3', 'Kling AI', 'Sora', 'Midjourney', 'ElevenLabs',
@@ -16,11 +25,15 @@ export default function AICreativeStudio() {
     <>
       {/* HERO */}
       <FadeUp className="page-hero">
-        <img className="hero-bg-img" src={heroImg} alt="" loading="eager" decoding="async" />
         <div className="hero-glow hero-glow-lime"></div>
-        <div className="page-tag">Service · 01</div>
-        <h1>AI <em>Creative</em><br />Studio.</h1>
-        <p>We produce AI drama, UGC content, and ads — at the speed of ideas, with the craft of a production house. Every frame is intentional. Every story is earned.</p>
+        <div className="page-hero-text">
+          <div className="page-tag">Service · 01</div>
+          <h1>AI <em>Creative</em><br />Studio.</h1>
+          <p>We produce AI drama, UGC content, and ads — at the speed of ideas, with the craft of a production house. Every frame is intentional. Every story is earned.</p>
+        </div>
+        <div className="page-hero-media">
+          <ResponsiveImage pc={heroPc} laptop={heroLaptop} mobile={heroMobile} alt="" loading="eager" />
+        </div>
       </FadeUp>
 
       {/* INTRO STRIP */}
@@ -69,7 +82,7 @@ export default function AICreativeStudio() {
             </ul>
           </div>
           <div className="service-visual">
-            <img src={dramaVisualImg} alt="Drama Production" loading="lazy" decoding="async" />
+            <ResponsiveImage pc={dramaPc} laptop={dramaLaptop} mobile={dramaMobile} alt="Drama Production" loading="lazy" />
             <div className="visual-icon">🎬</div>
             <div className="visual-badge">Drama Production</div>
             <div className="visual-dots">
@@ -83,7 +96,7 @@ export default function AICreativeStudio() {
         {/* UGC */}
         <FadeUp className="service-row">
           <div className="service-visual alt">
-            <img src={ugcVisualImg} alt="UGC Social Content" loading="lazy" decoding="async" />
+            <ResponsiveImage pc={ugcPc} laptop={ugcLaptop} mobile={ugcMobile} alt="UGC Social Content" loading="lazy" />
             <div className="visual-icon">📱</div>
             <div className="visual-badge">UGC · Social Content</div>
             <div className="visual-dots">
@@ -123,7 +136,7 @@ export default function AICreativeStudio() {
             </ul>
           </div>
           <div className="service-visual">
-            <img src={adsVisualImg} alt="AI Advertising" loading="lazy" decoding="async" />
+            <ResponsiveImage pc={adsPc} laptop={adsLaptop} mobile={adsMobile} alt="AI Advertising" loading="lazy" />
             <div className="visual-icon">⚡</div>
             <div className="visual-badge">AI Advertising</div>
             <div className="visual-dots">
