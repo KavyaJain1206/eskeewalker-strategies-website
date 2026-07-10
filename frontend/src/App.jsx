@@ -11,7 +11,6 @@ const SustainabilityComm = lazy(() => import('./pages/SustainabilityComm'))
 const AICourses = lazy(() => import('./pages/AICourses'))
 const About = lazy(() => import('./pages/About'))
 const Contact = lazy(() => import('./pages/Contact'))
-const Admin = lazy(() => import('./pages/Admin'))
 
 export default function App() {
   return (
@@ -26,7 +25,6 @@ export default function App() {
           <Route path="/courses" element={<AICourses />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/admin" element={<Admin />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

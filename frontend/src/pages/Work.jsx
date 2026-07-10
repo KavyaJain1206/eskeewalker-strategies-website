@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import FadeUp from '../components/FadeUp'
 import { FooterMinimal } from '../components/Footer'
 import ResponsiveImage from '../components/ResponsiveImage'
@@ -84,26 +84,8 @@ const filterLabels = { all: 'All', drama: 'Drama', ugc: 'UGC', ads: 'AI Ads', su
 
 export default function Work() {
   const [active, setActive] = useState('all')
-  const [items, setItems] = useState(workItems)
 
-  useEffect(() => {
-    fetch('/api/work')
-      .then(res => {
-        if (!res.ok) throw new Error('Failed to fetch')
-        return res.json()
-      })
-      .then(data => {
-        if (data && data.length > 0) {
-          setItems(data.map(d => ({
-            ...d,
-            img: typeof d.img === 'string' ? { pc: d.img, laptop: d.img, mobile: d.img } : d.img,
-          })))
-        }
-      })
-      .catch(err => console.log('CMS fetch failed, using fallback static data:', err))
-  }, [])
-
-  const visible = items.filter(item => active === 'all' || item.cat === active)
+  const visible = workItems.filter(item => active === 'all' || item.cat === active)
 
   return (
     <>

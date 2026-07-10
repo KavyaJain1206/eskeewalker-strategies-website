@@ -1,6 +1,5 @@
 import FadeUp from '../components/FadeUp'
 import { FooterMinimal } from '../components/Footer'
-import DynamicSections from '../components/DynamicSections'
 import CTASection from '../components/CTASection'
 import heroImg from '../assets/images/about-hero.webp'
 import founderImg from '../assets/images/founder.webp'
@@ -90,8 +89,6 @@ export default function About() {
         subtext="We're selective about the work we take on. If your project has a real story inside it, we want to hear it."
         btnText="Get in touch →"
       />
-
-      <DynamicSections pageName="about" excludeKeys={['hero', 'founder']} />
 
       <FooterMinimal />
     </>

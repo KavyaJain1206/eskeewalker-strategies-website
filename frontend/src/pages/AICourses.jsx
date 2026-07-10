@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 import FadeUp from '../components/FadeUp'
 import { FooterMinimal } from '../components/Footer'
 import CTASection from '../components/CTASection'
@@ -67,21 +66,7 @@ function getCourseIcon(title) {
 }
 
 export default function AICourses() {
-  const [courses, setCourses] = useState(defaultCourses)
-
-  useEffect(() => {
-    fetch('/api/courses')
-      .then(res => {
-        if (!res.ok) throw new Error('Failed to fetch')
-        return res.json()
-      })
-      .then(data => {
-        if (data && data.length > 0) {
-          setCourses(data)
-        }
-      })
-      .catch(err => console.log('CMS courses fetch failed, using fallbacks:', err))
-  }, [])
+  const courses = defaultCourses
 
   return (
     <>

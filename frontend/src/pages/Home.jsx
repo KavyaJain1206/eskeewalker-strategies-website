@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 import FadeUp from '../components/FadeUp'
 import { FooterFull } from '../components/Footer'
-import DynamicSections from '../components/DynamicSections'
 import CTASection from '../components/CTASection'
 import ResponsiveImage from '../components/ResponsiveImage'
 import heroVideoPc from '../assets/pc/website-template-video-compressed.mp4'
@@ -35,25 +33,12 @@ const marqueeItems = [
   'Sustainability Communication', 'Generative AI Courses', 'Brand Storytelling',
 ]
 
-export default function Home() {
-  const [hero, setHero] = useState({
-    title: "Stories built by AI,\nFelt by humans.",
-    subtitle: "We produce AI drama, UGC, and ads for brands that want to be remembered — and turn sustainability data into stories people actually watch."
-  })
+const hero = {
+  title: "Stories built by AI,\nFelt by humans.",
+  subtitle: "We produce AI drama, UGC, and ads for brands that want to be remembered — and turn sustainability data into stories people actually watch."
+}
 
-  useEffect(() => {
-    fetch('/api/pages/home')
-      .then(res => {
-        if (!res.ok) throw new Error('Failed to fetch')
-        return res.json()
-      })
-      .then(data => {
-        if (data.hero) {
-          setHero(data.hero)
-        }
-      })
-      .catch(err => console.log('CMS fetch failed, using fallback static data:', err))
-  }, [])
+export default function Home() {
 
   return (
     <>
@@ -292,8 +277,6 @@ export default function Home() {
       </div>
 
       <CTASection heading="Ready to make<br />something real?" subtext="Tell us what you're building. We'll tell you what it could look like." />
-
-      <DynamicSections pageName="home" excludeKeys={['hero', 'statement']} />
 
       <FooterFull />
     </>
