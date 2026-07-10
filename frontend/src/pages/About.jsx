@@ -2,8 +2,8 @@ import FadeUp from '../components/FadeUp'
 import { FooterMinimal } from '../components/Footer'
 import DynamicSections from '../components/DynamicSections'
 import CTASection from '../components/CTASection'
-import heroImg from '../assets/images/about-hero.jpg'
-import founderImg from '../assets/images/founder.jpg'
+import heroImg from '../assets/images/about-hero.webp'
+import founderImg from '../assets/images/founder.webp'
 
 const values = [
   { title: 'Story before tool', desc: 'Every project starts with the narrative. What\'s the emotion? What\'s the purpose? What needs to change in the viewer? We answer those questions before we open a single AI tool. The brief makes the video — not the model.' },
@@ -29,7 +29,7 @@ export default function About() {
           <h1 className="compact">Built on the belief that<br /><em>AI amplifies</em> great stories.</h1>
         </div>
         <div className="page-hero-media">
-          <img src={heroImg} alt="" loading="eager" decoding="async" />
+          <img className="media-fade" src={heroImg} alt="" loading="eager" decoding="async" onLoad={e => e.target.classList.add('loaded')} />
         </div>
       </FadeUp>
 
@@ -37,7 +37,7 @@ export default function About() {
       <FadeUp className="founder-section">
         <div className="founder-visual">
           <div className="founder-photo-frame">
-            <img src={founderImg} alt="Jitaksh Jain — Founder" decoding="async" />
+            <img className="media-fade" src={founderImg} alt="Jitaksh Jain — Founder" decoding="async" onLoad={e => e.target.classList.add('loaded')} />
           </div>
           <div className="founder-name">Jitaksh Jain</div>
           <div className="founder-role">Founder, EskeeWalker Strategies</div>

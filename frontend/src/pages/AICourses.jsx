@@ -4,9 +4,9 @@ import FadeUp from '../components/FadeUp'
 import { FooterMinimal } from '../components/Footer'
 import CTASection from '../components/CTASection'
 import ResponsiveImage from '../components/ResponsiveImage'
-import heroPc from '../assets/pc/learn-to-make-ai-that-moves.jpg'
-import heroLaptop from '../assets/laptop/learn-to-make-ai-that-moves.jpg'
-import heroMobile from '../assets/mobile/learn-to-make-ai-that-moves.jpg'
+import heroPc from '../assets/pc/learn-to-make-ai-that-moves.webp'
+import heroLaptop from '../assets/laptop/learn-to-make-ai-that-moves.webp'
+import heroMobile from '../assets/mobile/learn-to-make-ai-that-moves.webp'
 
 const whyPoints = [
   { icon: '⚡', title: 'AI is rewriting what creators can do', desc: 'One person with the right AI skills can now produce what used to take a full team. These courses teach you exactly those skills — practically, not theoretically.' },

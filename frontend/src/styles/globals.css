@@ -25,6 +25,14 @@
 }
 .loading-brand span { color: #B6F13A; }
 
+.media-fade { opacity: 0; transition: opacity 0.4s ease; }
+.media-fade.loaded { opacity: 1; }
+.page-hero-media, .service-card, .work-thumb, .work-placeholder, .founder-photo-frame, .service-visual {
+  background: linear-gradient(90deg, #111113 25%, #1C1C1F 37%, #111113 63%);
+  background-size: 400% 100%;
+  animation: loading-shimmer 1.4s ease infinite;
+}
+
 @font-face {
   font-family: 'Inter';
   font-style: normal;

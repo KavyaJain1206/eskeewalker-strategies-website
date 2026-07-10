@@ -3,9 +3,9 @@ import FadeUp from '../components/FadeUp'
 import { FooterMinimal } from '../components/Footer'
 import CTASection from '../components/CTASection'
 import ResponsiveImage from '../components/ResponsiveImage'
-import heroPc from '../assets/pc/sustainability-tha-move-people.jpg'
-import heroLaptop from '../assets/laptop/sustainability-tha-move-people.jpg'
-import heroMobile from '../assets/mobile/sustainability-tha-move-people.jpg'
+import heroPc from '../assets/pc/sustainability-tha-move-people.webp'
+import heroLaptop from '../assets/laptop/sustainability-tha-move-people.webp'
+import heroMobile from '../assets/mobile/sustainability-tha-move-people.webp'
 
 const problems = [
   { icon: '📄', title: 'The problem with sustainability content today', desc: 'Most sustainability communication is buried in annual reports, dense PDFs, and jargon-heavy press releases. The intent is real. The impact is near zero. Nobody is watching, sharing, or feeling it.' },

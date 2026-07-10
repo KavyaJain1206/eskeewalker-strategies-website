@@ -7,28 +7,28 @@ import CTASection from '../components/CTASection'
 import ResponsiveImage from '../components/ResponsiveImage'
 import heroVideoPc from '../assets/pc/website-template-video.mp4'
 import heroVideoMobile from '../assets/mobile/website-template-mobile-size-video.mp4'
-import dramaPc from '../assets/pc/drama-production-ai-microdrama-brand-story.jpg'
-import dramaLaptop from '../assets/laptop/drama-production-ai-microdrama-brand-story.jpg'
-import dramaMobile from '../assets/mobile/drama-production.jpg'
-import ugcPc from '../assets/pc/ugc-campaign-client-social-campaign.jpg'
-import ugcLaptop from '../assets/laptop/ugc-campaign-client-social-campaign.jpg'
-import ugcMobile from '../assets/mobile/ugc-campaign.jpg'
-import sustainabilityPc from '../assets/pc/esg-annual-report-animated-visual-story.jpg'
-import sustainabilityLaptop from '../assets/laptop/esg-annual-report-animated-visual-story.jpg'
-import sustainabilityMobile from '../assets/mobile/esg-annual-report-animated-visual-story.jpg'
-import adsPc from '../assets/pc/ai-ads.jpg'
-import adsLaptop from '../assets/laptop/ai-ads.jpg'
-import adsMobile from '../assets/mobile/ai-ads.jpg'
-import animationPc from '../assets/pc/ai-animation-brand-character-design.jpg'
-import animationLaptop from '../assets/laptop/ai-animation-brand-character-design.jpg'
-import animationMobile from '../assets/mobile/ai-animation.jpg'
-import serviceCreativePc from '../assets/pc/ugc-and-social-content.jpg'
-import serviceCreativeLaptop from '../assets/laptop/ugc-and-social-content.jpg'
-import serviceCreativeMobile from '../assets/mobile/ugc-and-social-content.jpg'
-import serviceSustainabilityPc from '../assets/pc/ai-ad-performance-ad-30-sec.jpg'
-import serviceSustainabilityLaptop from '../assets/laptop/ai-ad-performance-ad-30-sec.jpg'
-import serviceSustainabilityMobile from '../assets/mobile/ai-ad.jpg'
-import serviceCoursesImg from '../assets/images/aicourses-card.jpg'
+import dramaPc from '../assets/pc/drama-production-ai-microdrama-brand-story.webp'
+import dramaLaptop from '../assets/laptop/drama-production-ai-microdrama-brand-story.webp'
+import dramaMobile from '../assets/mobile/drama-production.webp'
+import ugcPc from '../assets/pc/ugc-campaign-client-social-campaign.webp'
+import ugcLaptop from '../assets/laptop/ugc-campaign-client-social-campaign.webp'
+import ugcMobile from '../assets/mobile/ugc-campaign.webp'
+import sustainabilityPc from '../assets/pc/esg-annual-report-animated-visual-story.webp'
+import sustainabilityLaptop from '../assets/laptop/esg-annual-report-animated-visual-story.webp'
+import sustainabilityMobile from '../assets/mobile/esg-annual-report-animated-visual-story.webp'
+import adsPc from '../assets/pc/ai-ads.webp'
+import adsLaptop from '../assets/laptop/ai-ads.webp'
+import adsMobile from '../assets/mobile/ai-ads.webp'
+import animationPc from '../assets/pc/ai-animation-brand-character-design.webp'
+import animationLaptop from '../assets/laptop/ai-animation-brand-character-design.webp'
+import animationMobile from '../assets/mobile/ai-animation.webp'
+import serviceCreativePc from '../assets/pc/ugc-and-social-content.webp'
+import serviceCreativeLaptop from '../assets/laptop/ugc-and-social-content.webp'
+import serviceCreativeMobile from '../assets/mobile/ugc-and-social-content.webp'
+import serviceSustainabilityPc from '../assets/pc/ai-ad-performance-ad-30-sec.webp'
+import serviceSustainabilityLaptop from '../assets/laptop/ai-ad-performance-ad-30-sec.webp'
+import serviceSustainabilityMobile from '../assets/mobile/ai-ad.webp'
+import serviceCoursesImg from '../assets/images/aicourses-card.webp'
 
 const marqueeItems = [
   'AI Animation', 'Drama Production', 'UGC Content', 'AI Ads',
@@ -150,7 +150,7 @@ export default function Home() {
           </Link>
 
           <Link to="/courses" className="service-card">
-            <img className="service-card-bg" src={serviceCoursesImg} alt="" loading="lazy" decoding="async" />
+            <img className="media-fade service-card-bg" src={serviceCoursesImg} alt="" loading="lazy" decoding="async" onLoad={e => e.target.classList.add('loaded')} />
             <div className="service-card-overlay"></div>
             <div className="service-card-content">
               <div className="service-icon">🎓</div>
